@@ -33,7 +33,7 @@ This command pulls the `jupyter/scipy-notebook` image tagged `2025-03-14` from Q
 It then starts a container running a Jupyter Server with the JupyterLab frontend and exposes the container's internal port `8888` to port `10000` of the host machine:
 
 ```bash
-docker run -p 10000:8888 quay.io/jupyter/scipy-notebook:2025-03-14
+docker run -p 10000:8888 -v "${PWD}":/home/jovyan/work quay.io/jupyter/scipy-notebook:2025-03-14
 ```
 
 You can modify the port on which the container's port is exposed by [changing the value of the `-p` option](https://docs.docker.com/engine/containers/run/#exposed-ports) to `-p 8888:8888`.
